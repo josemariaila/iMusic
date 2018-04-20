@@ -1,0 +1,4 @@
+language: swift
+xcode_project: iMusic.xcodeproj
+xcode_scheme: iMusicTests
+podfile: Podfile
