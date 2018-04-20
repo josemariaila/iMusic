@@ -71,7 +71,9 @@ extension SearchViewController: SearchViewInterface {
 }
 
 extension SearchViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 }
 
 extension SearchViewController: UITableViewDataSource {

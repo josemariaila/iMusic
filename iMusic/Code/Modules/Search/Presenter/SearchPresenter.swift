@@ -11,6 +11,7 @@ import Foundation
 protocol SearchPresenterInterface: class {
     var rows: Int { get }
     func getArtists(with filter: String?)
+    func getAlbums(from artist: String?)
     func searchViewModel(for indexPath: IndexPath) -> SearchCellViewModel?
 }
 
@@ -29,7 +30,7 @@ class SearchPresenter {
 
 private extension SearchPresenter {
     func createViewModels() {
-        viewModels = artists.flatMap { artist -> SearchCellViewModel? in
+        viewModels = artists.compactMap { artist -> SearchCellViewModel? in
             guard let name = artist.artistName, let style = artist.primaryGenreName else {
                 return nil
             }
@@ -48,6 +49,13 @@ extension SearchPresenter: SearchPresenterInterface {
             return
         }
         interactor.getArtists(with: text)
+    }
+
+    func getAlbums(from artist: String?) {
+        guard let identifier = artist else {
+            return
+        }
+        interactor.getAlbums(from: identifier)
     }
     
     func searchViewModel(for indexPath: IndexPath) -> SearchCellViewModel? {

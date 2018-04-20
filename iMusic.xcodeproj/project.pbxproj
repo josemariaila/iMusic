@@ -10,7 +10,6 @@
 		145B669D1FC199A100CC934C /* iMusicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145B669C1FC199A100CC934C /* iMusicTests.swift */; };
 		145B66C51FC19D4700CC934C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 145B66A81FC19D4700CC934C /* Assets.xcassets */; };
 		145B66C61FC19D4700CC934C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145B66A91FC19D4700CC934C /* LaunchScreen.storyboard */; };
-		145B66C81FC19D4700CC934C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 145B66AD1FC19D4700CC934C /* Info.plist */; };
 		145B66C91FC19D4700CC934C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145B66AF1FC19D4700CC934C /* AppDelegate.swift */; };
 		145B66CC1FC19EFF00CC934C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145B66CB1FC19EFF00CC934C /* Constants.swift */; };
 		145B66CE1FC19F2700CC934C /* UIColor+iMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145B66CD1FC19F2700CC934C /* UIColor+iMusic.swift */; };
@@ -30,6 +29,7 @@
 		145B66EC1FC20BB800CC934C /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145B66EB1FC20BB800CC934C /* SearchTableViewCell.swift */; };
 		145B66F01FC2149600CC934C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 145B66F21FC2149600CC934C /* Localizable.strings */; };
 		2E07F22E2F10156161084412 /* Pods_iMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20AC2A7DCEEB5AA1F0CB7F88 /* Pods_iMusic.framework */; };
+		A13A9B362087A3CF00D5765B /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13A9B352087A3CF00D5765B /* Album.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +72,7 @@
 		145B66F31FC2149800CC934C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1C19D7C937BA927D8225BC46 /* Pods-iMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMusic/Pods-iMusic.debug.xcconfig"; sourceTree = "<group>"; };
 		20AC2A7DCEEB5AA1F0CB7F88 /* Pods_iMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A13A9B352087A3CF00D5765B /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		A9A18FC1256A57A281FBA509 /* Pods-iMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMusic/Pods-iMusic.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,6 +187,7 @@
 		145B66B31FC19D4700CC934C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A13A9B352087A3CF00D5765B /* Album.swift */,
 				145B66E31FC1B59A00CC934C /* Artist.swift */,
 				145B66E71FC1F6D100CC934C /* Result.swift */,
 			);
@@ -336,7 +338,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "José María Ila";
 				TargetAttributes = {
 					145B66831FC199A100CC934C = {
@@ -375,7 +377,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				145B66C81FC19D4700CC934C /* Info.plist in Resources */,
 				145B66F01FC2149600CC934C /* Localizable.strings in Resources */,
 				145B66C51FC19D4700CC934C /* Assets.xcassets in Resources */,
 				145B66C61FC19D4700CC934C /* LaunchScreen.storyboard in Resources */,
@@ -459,6 +460,7 @@
 				145B66D61FC1A28D00CC934C /* MainRouter.swift in Sources */,
 				145B66E01FC1A4E000CC934C /* SearchRepository.swift in Sources */,
 				145B66C91FC19D4700CC934C /* AppDelegate.swift in Sources */,
+				A13A9B362087A3CF00D5765B /* Album.swift in Sources */,
 				145B66DA1FC1A4AC00CC934C /* SearchDataSource.swift in Sources */,
 				145B66E81FC1F6D100CC934C /* Result.swift in Sources */,
 				145B66EA1FC20B3000CC934C /* SearchCellViewModel.swift in Sources */,
@@ -529,6 +531,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -536,6 +539,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -587,6 +591,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -594,6 +599,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

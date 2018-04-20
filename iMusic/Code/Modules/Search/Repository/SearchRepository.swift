@@ -10,11 +10,15 @@ import Foundation
 
 protocol SearchRepositoryInputInterface {
     func getArtists(with filter: String)
+    func getAlbums(from artist: String)
 }
 
 protocol SearchRepositoryOutputInterface: class {
     func onArtistsSuccess(artists: [Artist])
     func onArtistsFailure(error: Error)
+
+    func onAlbumsSuccess(albums: [Album])
+    func onAlbumsFailure(error: Error)
 }
 
 class SearchRepository {
@@ -34,8 +38,20 @@ extension SearchRepository: SearchRepositoryInputInterface {
             }
             self?.output?.onArtistsSuccess(artists: artists)
             
-            }, failure: { [weak self] error in
-                self?.output?.onArtistsFailure(error: error)
+        }, failure: { [weak self] error in
+            self?.output?.onArtistsFailure(error: error)
+        })
+    }
+
+    func getAlbums(from artist: String) {
+        dataSource.getAlbums(from: artist, success: { [weak self] result in
+            guard let albums = result.results else {
+                return
+            }
+            self?.output?.onAlbumsSuccess(albums: albums)
+
+        }, failure: { [weak self] error in
+            self?.output?.onAlbumsFailure(error: error)
         })
     }
 }

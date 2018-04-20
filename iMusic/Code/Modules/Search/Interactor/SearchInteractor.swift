@@ -10,6 +10,7 @@ import Foundation
 
 protocol SearchInteractorInputInterface {
     func getArtists(with filter: String)
+    func getAlbums(from artist: String)
 }
 
 protocol SearchInteractorOutputInteface: class {
@@ -29,6 +30,10 @@ class SearchInteractor {
 extension SearchInteractor: SearchInteractorInputInterface {
     func getArtists(with filter: String) {
         repository.getArtists(with: filter)
+    }
+
+    func getAlbums(from artist: String) {
+        
     }
 }
 

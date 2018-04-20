@@ -12,6 +12,7 @@ typealias SuccessCompletionBlock = (_ object: Result) -> Void
 
 protocol SearchDataSourceInterface: DataSource {
     func getArtists(with filter: String, success: @escaping SuccessCompletionBlock, failure: @escaping FailureCompletionBlock)
+    func getAlbums(from artist: String, success: @escaping SuccessCompletionBlock, failure: @escaping FailureCompletionBlock)
 }
 
 class SearchDataSource {
@@ -25,11 +26,26 @@ class SearchDataSource {
         
         return urlComponent?.string
     }
+
+    private func lookupUrl(with identifier: String) -> String? {
+        var urlComponent = URLComponents(string: MusicAPI.iTunesUrl)
+        urlComponent?.path = MusicAPI.lookup
+        urlComponent?.queryItems = [URLQueryItem(name: "id", value: identifier),
+                                    URLQueryItem(name: "entity", value: "album")]
+        return urlComponent?.string
+    }
 }
 
 extension SearchDataSource: SearchDataSourceInterface {
     func getArtists(with filter: String, success: @escaping SuccessCompletionBlock, failure: @escaping FailureCompletionBlock) {
         guard let url = searchUrl(with: filter) else {
+            return
+        }
+        executeRequest(url: url, success: success, failure: failure)
+    }
+
+    func getAlbums(from artist: String, success: @escaping SuccessCompletionBlock, failure: @escaping FailureCompletionBlock) {
+        guard let url = lookupUrl(with: artist) else {
             return
         }
         executeRequest(url: url, success: success, failure: failure)
