@@ -15,11 +15,11 @@ struct FetchSearch: APIRequest {
         return "search"
     }
 
-    let q: String?
+    let artist: String?
     let type: String?
 
-    init(with query: String? = nil, type: String? = nil) {
-        self.q = query
+    init(with artist: String? = nil, type: String? = nil) {
+        self.artist = artist
         self.type = type
     }
 }

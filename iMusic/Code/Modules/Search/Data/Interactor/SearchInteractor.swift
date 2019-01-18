@@ -28,7 +28,7 @@ class SearchInteractor {
 
 extension SearchInteractor: SearchInteractorInput {
     func fetchSearch(with filter: String) {
-        repository.fetchSearch(with: filter, type: "release")
+        repository.fetchSearch(with: filter, type: "masters")
     }
 }
 
